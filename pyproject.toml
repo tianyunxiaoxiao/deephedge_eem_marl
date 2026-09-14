@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deephedge-eem-marl"
+version = "0.1.0"
+description = "Reproducible synthetic implementation of EEM-guided multi-agent deep hedging under Hurst-SVJJ dynamics."
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+deephedge-study = "deephedge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["deephedge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
